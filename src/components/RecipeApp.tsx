@@ -32,6 +32,43 @@ const handleAddRecipe=()=>{
 
 }
 
+const handleEditRecipe=(recipe:Recipe)=>{
+    setEditingRecipe(recipe);
+    setName(recipe.name);
+    setIngredients(recipe.ingredients.join(","));
+    setInstructions(recipe.instructions);
+}
+
+const handleUpdateRecipe=()=>{
+    if(name.trim()==="" || ingredients.trim()==="" || instructions.trim()===""){
+        return;
+    }
+
+    if(editingRecipe){
+        removeRecipe(editingRecipe.id);
+
+
+        addRecipe({
+        id:Date.now(),
+        name,
+        ingredients:ingredients.split(",").map(ingredients=>ingredients.trim()),
+        instructions,
+    });
+      setEditingRecipe(null);
+    }
+     
+    setName("");
+    setIngredients("");
+    setInstructions("")
+}
+
+const handleCancelEdit=()=>{
+    setEditingRecipe(null);
+    setName("");
+    setIngredients("");
+    setInstructions("")
+}
+
 
 
 
