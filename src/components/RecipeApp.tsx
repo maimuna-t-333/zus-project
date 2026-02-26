@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useStore } from '../store/useStore';
 
 interface Recipe {
@@ -70,12 +70,10 @@ const handleCancelEdit=()=>{
 }
 
 
-
-
     return (
         <div className='min-h-screen flex items-center justify-center bg-green-100'>
             <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
-
+                
                 <h1 className="text-3xl font-bold mb-6 text-center text-green-800">Recipe Book</h1>
 
                 <input type="text" value={name}
